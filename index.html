@@ -48,11 +48,22 @@
             {
                 var canvas = document.getElementById("lienzo");
                 var ctx = canvas.getContext("2d");
-                ctx.fillStyle = "#6BBA70";   
-                ctx.fillRect(0, 0, 600, 400);
+                ctx.fillStyle = "#FFFFFF";
+                ctx.fillRect(0, 0,675, 400);
+                ctx.fillStyle = "#6BBA70";
+                ctx.fillRect(0, 0, $("#campoNombre").val().length*75, 400);
+                $("#lienzo").width($("#campoNombre").val().length*75);
+                $("#lienzo").height(400);
                 ctx.fillStyle = "#FFFFFF";
                 ctx.font = "bold 100px Monospace";
-                ctx.fillText($("#campoNombre").val().toUpperCase(),0,70);
+                
+                for(i=0,j=0;i<675;i=i+75,j++)
+                {
+                    if(j==$("#campoNombre").val().length)
+                        break;
+                    ctx.fillText($("#campoNombre").val().toUpperCase()[j],i,70);    
+                }
+                
             }
             </script>    
     
@@ -76,7 +87,7 @@
                     <div class="form-group">
                         <label class="control-label">Escribe Tu Nombre</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" maxlength="10" style="text-transform:uppercase;" onkeypress="return soloLetras(event)" id="campoNombre">
+                            <input type="text" class="form-control" maxlength="9" style="text-transform:uppercase;" onkeypress="return soloLetras(event)" id="campoNombre">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" onclick="pintarCanvas();" id="btnSiguiente">Siguiente</button>
                             </span>
@@ -91,7 +102,7 @@
             
             <div class="row">
                 <div align="center">
-                    <canvas id="lienzo" height="400" width="600">
+                    <canvas id="lienzo" height="400" width="675">
                         su navegador no soporta canvas
                     </canvas>
                 </div><!--col-md-4-->
