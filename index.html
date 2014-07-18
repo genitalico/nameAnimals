@@ -48,11 +48,11 @@
             {
                 var canvas = document.getElementById("lienzo");
                 var ctx = canvas.getContext("2d");
-                ctx.fillStyle = "#4096EE";   
-                ctx.fillRect(0, 0, 500, 300);
+                ctx.fillStyle = "#6BBA70";   
+                ctx.fillRect(0, 0, 600, 400);
                 ctx.fillStyle = "#FFFFFF";
-                ctx.font = "bold 1.8pc Monospace";
-                ctx.fillText($("#campoNombre").val().toUpperCase(),20,50);
+                ctx.font = "bold 100px Monospace";
+                ctx.fillText($("#campoNombre").val().toUpperCase(),0,70);
             }
             </script>    
     
@@ -76,7 +76,7 @@
                     <div class="form-group">
                         <label class="control-label">Escribe Tu Nombre</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" maxlength="15" style="text-transform:uppercase;" onkeypress="return soloLetras(event)" id="campoNombre">
+                            <input type="text" class="form-control" maxlength="10" style="text-transform:uppercase;" onkeypress="return soloLetras(event)" id="campoNombre">
                             <span class="input-group-btn">
                                 <button class="btn btn-primary" type="button" onclick="pintarCanvas();" id="btnSiguiente">Siguiente</button>
                             </span>
@@ -90,16 +90,10 @@
             </div><!--row-->
             
             <div class="row">
-                <div class="col-md-4">
-                </div><!--col-md-4-->
-                
-                <div class="col-md-4">
-                    <canvas id="lienzo" height="500" width="300">
+                <div align="center">
+                    <canvas id="lienzo" height="400" width="600">
                         su navegador no soporta canvas
                     </canvas>
-                </div><!--col-md-4-->
-                
-                <div class="col-md-4">
                 </div><!--col-md-4-->
             </div><!--row-->
         </div><!--container-->
