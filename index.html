@@ -20,6 +20,30 @@
     
         <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="bootstrap.js"></script>
+            
+        <script type="text/javascript">
+    
+            function soloLetras(e)
+            {
+                key = e.keyCode || e.which;
+                tecla = String.fromCharCode(key).toLowerCase();
+                letras = "abcdefghijklmnñopqrstuvwxyz";
+                especiales = "37-39-46";
+                tecla_especial = false
+                for(var i in especiales)
+                {
+                    if(key == especiales[i])
+                    {
+                        tecla_especial = true;
+                        break;
+                    }
+                }
+                if(letras.indexOf(tecla)==-1 && !tecla_especial)
+                {
+                    return false;
+                }
+            }
+            </script>    
     
 
     </head>
@@ -31,7 +55,28 @@
         <div class="container">
             <div class="page-header">
                 <h1>Animales en Tu Nombre</h1>
-            </div><!--page-header-->    
+            </div><!--page-header-->
+            <div class="row">
+                <div class="col-md-4">
+                    Anuncios
+                </div><!--col-md-4-->
+                
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="control-label">Escribe Tu Nombre</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control" maxlength="15" style="text-transform:uppercase;" onkeypress="return soloLetras(event)" id="campoNombre">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="button">Siguiente</button>
+                            </span>
+                        </div><!--input-group-->
+                    </div><!--form-group-->
+                </div><!--col-md-4-->
+                
+                <div class="col-md-4">
+                    Anuncios
+                </div><!--col-md-4-->
+            </div><!--row-->
         </div><!--container-->
         
         
