@@ -124,7 +124,9 @@
                     }
                 }
                 
-                
+                var img = document.getElementById("imagen");
+                img.src = canvas.toDataURL("image/png");
+                $("#lienzo").hide();
                 
             }
             </script>    
@@ -167,6 +169,7 @@
                     <canvas id="lienzo" height="400" width="675">
                         su navegador no soporta canvas
                     </canvas>
+                    <img src="" id="imagen"/>
                 </div><!--col-md-4-->
             </div><!--row-->
         </div><!--container-->
