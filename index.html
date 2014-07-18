@@ -52,6 +52,16 @@
             var Y = ["YAK","YACARE"];
             var Z = ["ZAMURO","ZARIGUEYA","ZORRILLO","ZORRO"];
             var diccionario = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z];
+            
+            function getAnimal(inicial)
+            {
+                var animales = diccionario[inicial.charCodeAt()-97];
+                
+                numPosibilidades = animales.length-1;
+                aleat = Math.random() * numPosibilidades;
+                var animal = animales[Math.round(aleat)];
+                return animal;
+            }
     
             function soloLetras(e)
             {
@@ -93,6 +103,18 @@
                         break;
                     ctx.fillText($("#campoNombre").val().toUpperCase()[j],i,70);    
                 }
+                
+                for(i=0,k=25;i<$("#campoNombre").val().length;i++,k=k+75)
+                {
+                    var animalesArray = getAnimal($("#campoNombre").val()[i]);
+                    ctx.font = "bold 25px Monospace";
+                    
+                    for(ii=1,j=90;ii<animalesArray.length;ii++,j=j+20)
+                    {
+                        ctx.fillText(animalesArray[ii],k,j);
+                    }
+                }
+                
                 
             }
             </script>    
