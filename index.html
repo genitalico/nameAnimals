@@ -52,10 +52,18 @@
             var Y = ["YAK","YACARE"];
             var Z = ["ZAMURO","ZARIGUEYA","ZORRILLO","ZORRO"];
             var diccionario = [A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z];
+            var abcdario = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,T,Z";
+            var abcdarioArray = abcdario.split(",");
             
             function getAnimal(inicial)
             {
-                var animales = diccionario[inicial.charCodeAt()-97];
+                for(i=0;i<abcdarioArray.length;i++)
+                {
+                    if(abcdarioArray[i]===inicial.toUpperCase())
+                    {
+                        var animales = diccionario[i];
+                    }
+                }
                 
                 numPosibilidades = animales.length-1;
                 aleat = Math.random() * numPosibilidades;
@@ -104,16 +112,18 @@
                     ctx.fillText($("#campoNombre").val().toUpperCase()[j],i,70);    
                 }
                 
-                for(i=0,k=25;i<$("#campoNombre").val().length;i++,k=k+75)
+                
+                for(k=0,m=25;k<$("#campoNombre").val().length;k++,m=m+75)
                 {
-                    var animalesArray = getAnimal($("#campoNombre").val()[i]);
+                    var animalesArray = getAnimal($("#campoNombre").val()[k]);
                     ctx.font = "bold 25px Monospace";
                     
-                    for(ii=1,j=90;ii<animalesArray.length;ii++,j=j+20)
+                    for(n=1,o=90;n<animalesArray.length;n++,o=o+20)
                     {
-                        ctx.fillText(animalesArray[ii],k,j);
+                        ctx.fillText(animalesArray[n],m,o);
                     }
                 }
+                
                 
                 
             }
